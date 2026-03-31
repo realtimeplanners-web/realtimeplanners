@@ -276,6 +276,9 @@
       <div class="form-field">
         <input class="form-input" type="text" id="frole" placeholder="Your Role / Designation" maxlength="100">
       </div>
+      <div class="form-field" style="grid-column:1/-1">
+        <input class="form-input" type="tel" id="fphone" placeholder="Phone Number (optional)" maxlength="15">
+      </div>
     </div>
     <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">
       Request Early Access
@@ -329,6 +332,7 @@
     const email   = document.getElementById('femail').value.trim();
     const company = document.getElementById('fcompany').value.trim();
     const role    = document.getElementById('frole').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
     const statusEl = document.getElementById('statusMsg');
     const btn = document.getElementById('submitBtn');
 
@@ -360,7 +364,7 @@
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name, email, company, role,
+          name, email, company, role, phone,
           timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
           source: 'realtimeplanners.com'
         })
